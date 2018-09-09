@@ -84,6 +84,7 @@ class List extends React.Component{
 
                     this.setState({ page: nextPage }, () => {
                         // call fetchCurrencies function inside setState's callback
+                        // because we have to make sure first page state is updated
                         this.fetchCurrecies();
                     });
                 }
