@@ -42,28 +42,18 @@ class List extends React.Component{
                      this.setState({
                          currencies,
                          totalPages,
-                         loading: false 
+                         loading: false,
                         });
                     })
                     .catch((error) => {
                         this.setState({ 
                          error: error.errorMessage,
-                         loading: false 
+                         loading: false,
                         });
                     });
                 }
 
-                renderChangePercent(percent){
-                    if(percent > 0){
-                        return <span className="percent-raised">{percent}% &uarr;</span>
-                    }
-                    else if(percent < 0){
-                        return <span className="percent-fallen">{percent}% &darr;</span>
-                    }
-                    else {
-                        return <span>{percent}</span>
-                    }
-                }
+               
 
                 handlePaginationClick(direction){
 
@@ -84,6 +74,7 @@ class List extends React.Component{
 
                     this.setState({ page: nextPage }, () => {
                         // call fetchCurrencies function inside setState's callback
+                        // because we have to make sure first page state is updated
                         this.fetchCurrecies();
                     });
                 }
@@ -106,7 +97,7 @@ class List extends React.Component{
             <div>
                 <Table 
                     currencies={currencies}
-                    renderChangePercent = {this.renderChangePercent}
+                   
                 />
                 <Pagination 
                     page={page}
