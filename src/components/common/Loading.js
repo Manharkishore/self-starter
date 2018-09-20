@@ -15,7 +15,7 @@ Loading.defaultProps = {
 
 
 Loading.propTypes = {
-    eidth: PropTypes.string,
+    width: PropTypes.string,
     height: PropTypes.string,
 };
 
